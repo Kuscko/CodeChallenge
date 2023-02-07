@@ -1,8 +1,24 @@
-﻿@{
+﻿@using CodeChallenge.Core.Models.DomainModels;
+@model List<Contact>
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <td>Contact Details</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var contact in Model)
+            {
+                <tr>
+                    <td>@contact.FirstName @contact.LastName | @contact.Address.Street @contact.Address.City @contact.Address.State, @contact.Address.PostalCode</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
