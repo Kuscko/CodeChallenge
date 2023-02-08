@@ -1,7 +1,22 @@
+using CodeChallenge.Core.Models.DataLayer;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<ContactDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("CodeChallenge.Presentation"));
+});
+
+using (var serviceScope = builder.Services.BuildServiceProvider().GetService<IServiceScopeFactory>().CreateScope())
+{
+    var context = serviceScope.ServiceProvider.GetRequiredService<ContactDbContext>();
+    context.Database.Migrate();
+}
+
 
 var app = builder.Build();
 
