@@ -66,8 +66,8 @@ I suggest bookmarking this page to come back while you are installing the proper
 2. Open "CodingChallenge.Presentation" and navigate to and open "appsettings.json".
 3. On Line 3 change the existing "DefaultConnection" and paste the connection string you copied earlier. 
 4. Due to no existing trusted CA Certificate registered, we're going to append "Encrypte=False;" to the end of the connection string instead since this will be running locally and not exposed. 
-   - Your connection string should now look something like this: "Server=localhost\\SQLEXPRESS;Database=master;Trusted_Connection=True;Encrypt=False;"
-![image](https://user-images.githubusercontent.com/31110844/217430968-eafd1db8-9330-42d3-b0fe-4f5e0d89c8a8.png)
+   - Your connection string should now look something like this: "Server=localhost\\SQLEXPRESS;Database=CodeChallenge;Trusted_Connection=True;Encrypt=False;"
+![image](https://user-images.githubusercontent.com/31110844/217436190-c9b40474-f13a-4d11-8cde-5ce4e9ac42e5.png)
 
 5. Save your changes and Build the solution by the following methods:
    - Visual Studio Hotkeys: Ctrl+Shift+B
