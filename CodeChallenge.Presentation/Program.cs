@@ -14,7 +14,8 @@ builder.Services.AddDbContext<ContactDbContext>(options =>
 using (var serviceScope = builder.Services.BuildServiceProvider().GetService<IServiceScopeFactory>().CreateScope())
 {
     var context = serviceScope.ServiceProvider.GetRequiredService<ContactDbContext>();
-    context.Database.Migrate();
+    context.Database.EnsureDeleted();
+    context.Database.EnsureCreated();
 }
 
 
