@@ -1,4 +1,4 @@
-# CodeChallenge
+# Contact Detail List - Code Challenge
 
 I suggest bookmarking this page to come back while you are installing the proper software.
 
